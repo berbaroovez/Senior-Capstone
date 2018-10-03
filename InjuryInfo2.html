@@ -2,7 +2,13 @@
 <html>
   <head>
     <link rel="stylesheet" href="main.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="jquery.repeatable.js"></script>
     <title>Injury Information2</title>
+
+
+
+
   </head>
   <body id="InjuryInfoBody">
 
@@ -12,9 +18,51 @@
 
 
           <form>
-            <label for="InjuryTextBox"> Injury:</label> <input type="text" name="InjuryTextBox">
-            <label for="DescriptionTextBox"> Description:</label> <input type="text" name="DescriptionTextBox">
+            <fieldset class="todos_labels">
+            <label for="InjuryTextBox"> Injury</label> <input type="text" name="InjuryTextBox">
+            <label for="DescriptionTextBox"> Description</label> <input type="text" name="DescriptionTextBox">
             <label for="TrainerSeenTextBox"> Athletic Trainer Seen:</label> <input type="text" name="TrainerSeenTextBox">
+
+
+
+              <div class="repeatable"></div>
+
+              <div class="form-group" style="text-align:center;">
+                <input type="button" value="Add Injury" class="btn btn-default add" align="center">
+              </div>
+
+            </fieldset>
+
           </form>
+
+
+
+
+
+<script type="text/template" id="todos_labels">
+  <div class="field-group">
+
+    <label for="injury_{?}">Injury</label>
+    <input type="text" name="todos_labels[{?}][injury]" value="{injury}" id="injury_{?}">
+
+    <label for="descript_{?}">Description</label>
+    <input type="text" name="todos_labels[{?}][descript]" value="{descript}" id="descript_{?}">
+
+    <input type="button" class="delete" value="Remove">
+
+  </div>
+
+
+</script>
+
+<script>
+
+    $(".todos_labels .repeatable").repeatable({
+  addTrigger: ".todos_labels .add",
+  deleteTrigger: ".todos_labels .delete",
+  template: "#todos_labels"
+});
+
+</script>
   </body>
 </html>
