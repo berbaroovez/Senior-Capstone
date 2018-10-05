@@ -1,0 +1,4 @@
+//This is a file for links related to project
+
+https://www.jqueryscript.net/form/Duplicate-Input-Fields-jQuery-Repeatable.html
+- how I added dynamic adding forms to injury page

@@ -1,3 +1,9 @@
 injury Page
 - design custom layout for ATS and add injury
-- make the drop down menu draw from datbases and not hardcodes
+- make the drop down menu draw from databases and not hardcodes
+-csc1234
+
+NEXT TASKS
+- create databases
+- improve the look of the site
+-eventually create AT side of site
