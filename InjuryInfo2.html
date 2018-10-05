@@ -19,7 +19,13 @@
 
           <form>
             <fieldset class="todos_labels">
-            <label for="InjuryTextBox"> Injury</label> <input type="text" name="InjuryTextBox">
+            <label for="InjuryTextBox"> Injury</label>
+              <select name="InjuryDropDown">
+                <option value="Ankle">Ankle</option>
+                <option value="Knee">Knee</option>
+                <option value="Shoulder">Shoulder</option>
+                <option value="Arm">Arm</option>
+              </select>
             <label for="DescriptionTextBox"> Description</label> <input type="text" name="DescriptionTextBox">
             <label for="TrainerSeenTextBox"> Athletic Trainer Seen:</label> <input type="text" name="TrainerSeenTextBox">
 
@@ -43,7 +49,14 @@
   <div class="field-group">
 
     <label for="injury_{?}">Injury</label>
-    <input type="text" name="todos_labels[{?}][injury]" value="{injury}" id="injury_{?}">
+    <!-- <input type="text" name="todos_labels[{?}][injury]" value="{injury}" id="injury_{?}"> -->
+    <!--might have to mess with the values when starting to pass things -->
+    <select name="todos_labels[{?}][injury]" id="injury_{?}">
+      <option value="{injury}">Ankle</option>
+      <option value="{injury}">Knee</option>
+      <option value="{injury}">Shoulder</option>
+      <option value="{injury}">Arm</option>
+    </select>
 
     <label for="descript_{?}">Description</label>
     <input type="text" name="todos_labels[{?}][descript]" value="{descript}" id="descript_{?}">
