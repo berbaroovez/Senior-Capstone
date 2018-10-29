@@ -10,3 +10,9 @@ NEXT TASKS
 
 -eventually create AT side of site
 --LOGIN SIDE ->password
+
+--Loras Gold
+#D1B888
+
+--Loras Purple
+#48235D
