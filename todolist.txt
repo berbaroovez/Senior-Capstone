@@ -3,6 +3,11 @@ injury Page
 - make the drop down menu draw from databases and not hardcodes
 -csc1234
 
+
+DuSignup
+- Form validation
+  make sure all required information is entered (jquery? javascript?)
+-PHP validation to check if username is already used with in same page
 NEXT TASKS
 - create databases
 - improve the look of the site
