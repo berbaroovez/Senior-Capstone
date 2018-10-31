@@ -1,0 +1,12 @@
+
+
+#bootstrap-overrides jumbotron{ /* 100+1=101 priority score, yay! */
+
+  background-color: #D2B772;
+}
+
+#InjuryInfoBody{
+background-color: #D2B772;
+
+
+}
