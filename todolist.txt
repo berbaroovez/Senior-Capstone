@@ -21,3 +21,24 @@ NEXT TASKS
 
 --Loras Purple
 #48235D
+
+ls538745
+co533040
+create user 'carterAdmin'@'localhost' identified by 'loras2018ATR'
+CREATE USER 'lorasAdmin'@'%' IDENTIFIED BY 'lorasATR2018';
+
+off campus: 192.152.29.52
+atr.loras.edu
+on campus: 10.20.2.18
+
+<?php
+$getNames = "select * from TestTable";
+
+$result = $connect->query($getNames);
+
+while($row = $result->fetch_assoc())
+{
+echo"".$row[name]."";
+}
+
+ ?>
