@@ -42,3 +42,15 @@ echo"".$row[name]."";
 }
 
  ?>
+
+
+
+
+
+
+
+
+db problems
+  - insert into students
+        sportID is not foreign key
+        no foreign keys in any tables i think
