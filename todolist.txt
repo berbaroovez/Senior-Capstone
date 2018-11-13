@@ -7,10 +7,8 @@ injury Page
 DuSignup
 - Form validation
   make sure all required information is entered (jquery? javascript?)
--PHP validation to check if username is already used with in same page
-NEXT TASKS
-- create databases
-- improve the look of the site
+- Decide how to input sports
+-Make error message better
 
 
 -eventually create AT side of site
