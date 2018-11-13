@@ -1,3 +1,7 @@
+HOW TO UPLOAD FILE TO SERVER:
+- drag over into home directory on WINScp
+- sudo cp file to /var/www/html/
+
 injury Page
 - design custom layout for ATS and add injury
 - make the drop down menu draw from databases and not hardcodes
