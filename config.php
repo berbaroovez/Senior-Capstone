@@ -1,7 +1,8 @@
 <?php
-define('DBHOST', 'atr.loras.edu');
-define('DBNAME', 'testDB');
+define('DBHOST', 'localhost');
+define('DBNAME', 'atr');
 define('DBUSER', 'lorasAdmin');
 define('DBPASS', 'lorasATR2018');
-define('DBCONNSTRING','mysql:host=atr.loras.edu;dbname=testDB');
+
+$db = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
 ?>
