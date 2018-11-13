@@ -1,5 +1,5 @@
 <?php
-include("config.php")
+include("config.php");
 session_start();
 $db = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
 
@@ -10,7 +10,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       $myusername = mysqli_real_escape_string($db,$_POST['loginTextBox']);
 
 
-      $sql = "SELECT id FROM admin WHERE username = '$myusername'";
+      $sql = "SELECT username FROM students WHERE username = '$myusername'";
       $result = mysqli_query($db,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       $active = $row['active'];
@@ -28,6 +28,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
          $error = "Your Login Name or Password is invalid";
       }
    }
+
+
 
 ?>
 <!DOCTYPE html>
