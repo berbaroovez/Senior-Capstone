@@ -76,23 +76,23 @@ mysqli_close($link);
       $sql = "SELECT username FROM students WHERE username = '".$ID."'";
 
 
-      if ($result = $link->query("SELECT username FROM students where username='co533040'")) {
+      if ($result = $link->query("SELECT username FROM students where username='".$ID."'")) {
 
     /* determine number of rows result set */
     $row_cnt = $result->num_rows;
-
-    printf("Result set has %d rows.\n", $row_cnt);
+    if($row_cnt>0)
+    {
+      printf("Username taken");
+    }
+    else {
+      printf("good to go");
+    }
 
     /* close result set */
     $result->close();
 }
-      // if(mysqli_query($link, $sql))
-      // {
-      //   echo "Record Added";
-      // }
-      // else {
-      //   echo "Error: " . $sql."".mysqli_error($link);
-      // }
+
+
      }
 
      ?>
