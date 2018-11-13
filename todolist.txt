@@ -9,6 +9,7 @@ DuSignup
   make sure all required information is entered (jquery? javascript?)
 - Decide how to input sports
 -Make error message better
+- Also learn how to hide mysql info
 
 
 -eventually create AT side of site
