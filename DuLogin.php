@@ -75,13 +75,22 @@ mysqli_close($link);
 
       $sql = "SELECT username FROM students WHERE username = '".$ID."'";
       echo "Hello";
-      if(mysqli_query($link, $sql))
+
+      if (mysql_num_rows($link,$sql) != 0)
       {
-        echo "Record Added";
+          echo "Username already exists";
       }
-      else {
-        echo "Error: " . $sql."".mysqli_error($link);
-      }
+      else
+      {
+          echo "Error: " . $sql."".mysqli_error($link);
+        }
+      // if(mysqli_query($link, $sql))
+      // {
+      //   echo "Record Added";
+      // }
+      // else {
+      //   echo "Error: " . $sql."".mysqli_error($link);
+      // }
     }
 
      ?>
