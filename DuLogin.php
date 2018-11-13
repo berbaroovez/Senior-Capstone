@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 // ----------------------------------------------------------------------------------------------------
 // - Display Errors
 // ----------------------------------------------------------------------------------------------------
@@ -61,8 +60,6 @@ $old_error_handler = set_error_handler("ErrorHandler");
 
 // other php code
 
-=======
->>>>>>> 3f9a23356b9f4a7808c279d76e8835806221b8db
 include("config.php");
 session_start();
 $db = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
