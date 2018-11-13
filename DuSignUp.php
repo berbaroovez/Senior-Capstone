@@ -84,7 +84,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
   }
 
   #This takes in the post variables from the form above
-  #the last line with two ID's makes sures ID is lowercase before entering into database to also eliminate duplicates 
+  #the last line with two ID's makes sures ID is lowercase before entering into database to also eliminate duplicates
   $FirstName = mysqli_real_escape_string($link, $_POST['FirstName']);
   $LastName = mysqli_real_escape_string($link, $_POST['LastName']);
   $ID = mysqli_real_escape_string($link, $_POST['ID']);
