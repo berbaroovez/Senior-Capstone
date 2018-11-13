@@ -74,16 +74,18 @@ mysqli_close($link);
       $ID = strtolower($ID);
 
       $sql = "SELECT username FROM students WHERE username = '".$ID."'";
-      echo "Hello";
 
-      if (mysql_num_rows($link,$sql) != 0)
-      {
-          echo "Username already exists";
-      }
-      else
-      {
-          echo "Error: " . $sql."".mysqli_error($link);
-        }
+
+      if ($result = $link->query("SELECT username FROM students where username='co533040'")) {
+
+    /* determine number of rows result set */
+    $row_cnt = $result->num_rows;
+
+    printf("Result set has %d rows.\n", $row_cnt);
+
+    /* close result set */
+    $result->close();
+}
       // if(mysqli_query($link, $sql))
       // {
       //   echo "Record Added";
