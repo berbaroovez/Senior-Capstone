@@ -1,10 +1,3 @@
-<?php
-
-
-
-
-mysqli_close($link);
- ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -51,54 +44,37 @@ mysqli_close($link);
 
 
     <?php
-
-    #This if statment allows the the mysql query to go through on the same page
-    #This eliminates the need for two pages reducing clutter.
-    #Also added a unique attribute to username column so it will return a error if the same username is added
-    if($_SERVER['REQUEST_METHOD']=='POST')
-    {
-      $link = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
-
-      if (!$link) {
-          echo "Error: Unable to connect to MySQL." . PHP_EOL;
-          echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-          echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-          exit;
+    include("config.php")
+    session_start();
+    $db = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
 
 
-      }
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+          // username and password sent from form
 
-      #This takes in the post variables from the form above
-      #the last line with two ID's makes sures ID is lowercase before entering into database to also eliminate duplicates
-      $ID = mysqli_real_escape_string($link, $_POST['loginTextBox']);
-      $ID = strtolower($ID);
-
-      $sql = "SELECT username FROM students WHERE username = '".$ID."'";
+          $myusername = mysqli_real_escape_string($db,$_POST['loginTextBox']);
 
 
-      if ($result = $link->query("SELECT username FROM students where username='".$ID."'")) {
+          $sql = "SELECT id FROM admin WHERE username = '$myusername'";
+          $result = mysqli_query($db,$sql);
+          $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+          $active = $row['active'];
 
-    /* determine number of rows result set */
-    $row_cnt = $result->num_rows;
-    if($row_cnt>0)
-    {
-      printf("Username taken");
-    }
-    else {
-      printf("good to go");
-    }
+          $count = mysqli_num_rows($result);
 
-    /* close result set */
-    $result->close();
-}
+          // If result matched $myusername and $mypassword, table row must be 1 row
 
+          if($count == 1) {
+             session_register("myusername");
+             $_SESSION['login_user'] = $myusername;
 
-     }
+             header("location: welcome.php");
+          }else {
+             $error = "Your Login Name or Password is invalid";
+          }
+       }
 
-     ?>
-
-
-
+?>
   </body>
 </html>
 <!-- Test carter is dumb-->
