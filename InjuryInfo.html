@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="main.css">
-    <title>Injury Information</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="js/jquery.repeatable.js"></script>
+    <title>Injury Information2</title>
+
+
+
+
   </head>
   <body id="InjuryInfoBody">
 
@@ -10,43 +16,66 @@
       Report any injuries below
     </h1>
 
-    <form>
-      <button type ="button" name ="AddInjuryButton" onclick = "AddInjuryFunction();"> Click here to add an injury. </button>
-    </form>
 
-    <table style = "width:100%`">
-      <tr>
-        <th>
           <form>
-            <label for="InjuryTextBox"> Injury:</label> <input type="text" name="InjuryTextBox">
-          </form>
-        </th>
-        <th>
-          <form>
-            <label for="DescriptionTextBox"> Description:</label> <input type="text" name="DescriptionTextBox">
-          </form>
-        </th>
-        <th>
-          <form>
+            <fieldset class="todos_labels">
+            <label for="InjuryTextBox"> Injury</label>
+              <select name="InjuryDropDown">
+                <option value="Ankle">Ankle</option>
+                <option value="Knee">Knee</option>
+                <option value="Shoulder">Shoulder</option>
+                <option value="Arm">Arm</option>
+              </select>
+            <label for="DescriptionTextBox"> Description</label> <input type="text" name="DescriptionTextBox">
             <label for="TrainerSeenTextBox"> Athletic Trainer Seen:</label> <input type="text" name="TrainerSeenTextBox">
+
+
+
+              <div class="repeatable"></div>
+
+              <div class="form-group" style="text-align:center;">
+                <input type="button" value="Add Injury" class="btn btn-default add" align="center">
+              </div>
+
+            </fieldset>
+
           </form>
-        </th>
-      </tr>
-    <script>
 
-    function AddInjuryFunction(){
-    if (AddInjuryButton.click = "true"){
-      <tr>
-          <th>
-            <form>
-              <label for="InjuryTextBox"> Injury:</label> <input type="text" name="InjuryTextBox">
-            </form>
-          </th>
-        </tr>
-      }
-    }
-    </script>
-    </table>
 
+
+
+
+<script type="text/template" id="todos_labels">
+  <div class="field-group">
+
+    <label for="injury_{?}">Injury</label>
+    <!-- <input type="text" name="todos_labels[{?}][injury]" value="{injury}" id="injury_{?}"> -->
+    <!--might have to mess with the values when starting to pass things -->
+    <select name="todos_labels[{?}][injury]" id="injury_{?}">
+      <option value="{injury}">Ankle</option>
+      <option value="{injury}">Knee</option>
+      <option value="{injury}">Shoulder</option>
+      <option value="{injury}">Arm</option>
+    </select>
+
+    <label for="descript_{?}">Description</label>
+    <input type="text" name="todos_labels[{?}][descript]" value="{descript}" id="descript_{?}">
+
+    <input type="button" class="delete" value="Remove">
+
+  </div>
+
+
+</script>
+
+<script>
+
+    $(".todos_labels .repeatable").repeatable({
+  addTrigger: ".todos_labels .add",
+  deleteTrigger: ".todos_labels .delete",
+  template: "#todos_labels"
+});
+
+</script>
   </body>
 </html>
