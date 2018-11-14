@@ -47,13 +47,15 @@ echo"".$row[name]."";
  ?>
 
 
+insert into injury report
+ insert into injury_report (studentID, Date, Description, ATS_ID, InjuryID) values ('1',now(), 'sprained right ankle', '1', '2');
 
 
+Query Goals-
 
+All the injuries and dates for one player
+All the injuries for a team grouped and counted
+all the injuries between two dates
+- maybe just a count of how many people came in the atr  that week
 
-
-
-db problems
-  - insert into students
-        sportID is not foreign key
-        no foreign keys in any tables i think
+Make sure we test a query from all database tables
