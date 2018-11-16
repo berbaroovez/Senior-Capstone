@@ -36,38 +36,24 @@ off campus: 192.152.29.52
 atr.loras.edu
 on campus: 10.20.2.18
 
-<<<<<<< HEAD
 
 db problems
   - insert into students
         sportID is not foreign key
         no foreign keys in any tables i think
-=======
-<?php
-$getNames = "select * from TestTable";
-
-$result = $connect->query($getNames);
-
-while($row = $result->fetch_assoc())
-{
-echo"".$row[name]."";
-}
-
- ?>
 
 
-insert into injury report
- insert into injury_report (studentID, Date, Description, ATS_ID, InjuryID) values ('1',now(), 'sprained right ankle', '1', '2');
+        insert into injury report
+         insert into injury_report (studentID, Date, Description, ATS_ID, InjuryID) values ('1',now(), 'sprained right ankle', '1', '2');
 
 
-Query Goals-
+        Query Goals-
 
-All the injuries and dates for one player
-  students.FirstName, students.LastName, injury_report.Date, injury_report.Description from students join injury_report on students.ID = injury_report.studentID where students.FirstName = 'logan';
-All the injuries for a team grouped and counted
- select sports.Name, injury_report.Date, injury_report.Description from sports join injury_report on sports.sportsID = injury_report.studentID;
-all the injuries between two dates
-- maybe just a count of how many people came in the atr  that week
+        All the injuries and dates for one player
+          students.FirstName, students.LastName, injury_report.Date, injury_report.Description from students join injury_report on students.ID = injury_report.studentID where students.FirstName = 'logan';
+        All the injuries for a team grouped and counted
+         select sports.Name, injury_report.Date, injury_report.Description from sports join injury_report on sports.sportsID = injury_report.studentID;
+        all the injuries between two dates
+        - maybe just a count of how many people came in the atr  that week
 
-Make sure we test a query from all database tables
->>>>>>> a64086fef7bf81dac7561d1ab4124c66be380f58
+        Make sure we test a query from all database tables
