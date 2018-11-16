@@ -84,7 +84,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       if($count == 1) {
          $_SESSION['login_user'] = $myusername;
 
-         header("location: InjuryInfo.html");
+         header("location: InjuryInfo.php"); 
       }else {
          $error = "Your Login Name or Password is invalid";
       }
