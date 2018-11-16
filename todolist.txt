@@ -54,7 +54,9 @@ insert into injury report
 Query Goals-
 
 All the injuries and dates for one player
+  students.FirstName, students.LastName, injury_report.Date, injury_report.Description from students join injury_report on students.ID = injury_report.studentID where students.FirstName = 'logan';
 All the injuries for a team grouped and counted
+ select sports.Name, injury_report.Date, injury_report.Description from sports join injury_report on sports.sportsID = injury_report.studentID;
 all the injuries between two dates
 - maybe just a count of how many people came in the atr  that week
 
