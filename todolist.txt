@@ -15,6 +15,8 @@ DuSignup
 -Make error message better
 - Also learn how to hide mysql info
 
+DuLogin
+- display message when wrong username is entered
 
 -eventually create AT side of site
 --LOGIN SIDE ->password
