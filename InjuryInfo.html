@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
   <head>
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -11,72 +11,55 @@
 
 
   </head>
-  <body id="InjuryInfoBody">
+  <body style="background:#D1B888 !important">
 
-    <h1>
-      Report any injuries below
-    </h1>
-
-
-          <form>
-            <fieldset class="todos_labels">
-            <label for="InjuryTextBox"> Injury</label>
-              <select name="InjuryDropDown">
-                <option value="Ankle">Ankle</option>
-                <option value="Knee">Knee</option>
-                <option value="Shoulder">Shoulder</option>
-                <option value="Arm">Arm</option>
-              </select>
-            <label for="DescriptionTextBox"> Description</label> <input type="text" name="DescriptionTextBox">
-            <label for="TrainerSeenTextBox"> Athletic Trainer Seen:</label> <input type="text" name="TrainerSeenTextBox">
+    <div style="background:transparent !important" class ="jumbotron text-center">
 
 
 
-              <div class="repeatable"></div>
+<!--NEW BOOTSTRAP LAYOUT -->
+<!---->
+<!---->
 
-              <div class="form-group" style="text-align:center;">
-                <input type="button" value="Add Injury" class="btn btn-default add" align="center">
+  <section id="cover">
+      <div id="cover-caption">
+          <div id="container" class="container">
+              <div class="row text-black">
+                  <div class="col-sm-10 offset-sm-1 text-center">
+                      <h1 class="display-3">Injury Info</h1>
+                      <div class="info-form">
+                          <form action="" class="form-inline justify-content-center">
+                              <div class="form-group">
+                                  <select class="form-control form-control-sm" id="Injury_Select">
+                                  <option value="" disabled selected>Select a Injury</option>
+                                  <option>Ankle</option>
+                                  <option>Back</option>
+                                  <option>Wrist</option>
+                                </select>
+                              </div>
+                              <div class="form-group">
+                                  <input type="text" class="form-control form-control-sm" placeholder="Description">
+                              </div>
+                              <div class="form-group">
+                                  <select class="form-control form-control-sm" id="ATS_SAW">
+                                  <option value="" disabled selected>Athletic Trainer Saw</option>
+                                  <option>Amanda</option>
+                                  <option>Chris</option>
+                                  <option>Katie</option>
+                                </select>
+                              </div>
+                              <button type="submit" class="btn btn-sm  ">Submit</button>
+                          </form>
+                      </div>
+                      <br>
+
+
+                  </div>
               </div>
+          </div>
+      </div>
 
-            </fieldset>
-
-          </form>
-
-
-
-
-
-<script type="text/template" id="todos_labels">
-  <div class="field-group">
-
-    <label for="injury_{?}">Injury</label>
-    <!-- <input type="text" name="todos_labels[{?}][injury]" value="{injury}" id="injury_{?}"> -->
-    <!--might have to mess with the values when starting to pass things -->
-    <select name="todos_labels[{?}][injury]" id="injury_{?}">
-      <option value="{injury}">Ankle</option>
-      <option value="{injury}">Knee</option>
-      <option value="{injury}">Shoulder</option>
-      <option value="{injury}">Arm</option>
-    </select>
-
-    <label for="descript_{?}">Description</label>
-    <input type="text" name="todos_labels[{?}][descript]" value="{descript}" id="descript_{?}">
-
-    <input type="button" class="delete" value="Remove">
-
-  </div>
-
-
-</script>
-
-<script>
-
-    $(".todos_labels .repeatable").repeatable({
-  addTrigger: ".todos_labels .add",
-  deleteTrigger: ".todos_labels .delete",
-  template: "#todos_labels"
-});
-
-</script>
+        </div>
+  </section>
   </body>
 </html>
