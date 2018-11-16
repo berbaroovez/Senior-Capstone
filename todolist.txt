@@ -36,24 +36,6 @@ off campus: 192.152.29.52
 atr.loras.edu
 on campus: 10.20.2.18
 
-<?php
-$getNames = "select * from TestTable";
-
-$result = $connect->query($getNames);
-
-while($row = $result->fetch_assoc())
-{
-echo"".$row[name]."";
-}
-
- ?>
-
-
-
-
-
-
-
 
 db problems
   - insert into students
