@@ -50,9 +50,10 @@ db problems
         Query Goals-
 
         All the injuries and dates for one player
-        select students.FirstName, students.LastName, injury_report.Date, injury_report.Description from students join injury_report on students.ID = injury_report.studentID where students.FirstName = 'logan';
-      --trying to improve but doesnt work
-        select students.FirstName, students.LastName,injuries.Name, injury_report.Date, injury_report.Description from students join injuries on students.ID = injuries.injuriesID join injury_report on injuries.injuriesID = injury_report.studentID where students.FirstName = 'carter';
+        select students.FirstName, students.LastName,injuries.Name, injury_report.Description, injury_report.Date from students
+        join injury_report on students.ID = injury_report.studentID
+        join injuries on injury_report.InjuryReportID = injuries.injuriesID
+        where students.FirstName = 'carter';
 
         All the injuries for a team grouped and counted
          select sports.Name, injury_report.Date, injury_report.Description from sports join injury_report on sports.sportsID = injury_report.studentID;

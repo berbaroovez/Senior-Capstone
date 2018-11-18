@@ -84,7 +84,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       if($count == 1) {
          $_SESSION['login_user'] = $myusername;
 
-         header("location: InjuryInfo.php"); 
+         header("location: InjuryInfo.php");
       }else {
          $error = "Your Login Name or Password is invalid";
       }
@@ -108,7 +108,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <div style="background:transparent !important" class ="jumbotron text-center">
       <div class ="container">
 
-        <h1>Atheletic Trainer Room Sign In</h1>
+        <h1 class="display3">Atheletic Trainer Room Sign In</h1>
 
       </div>
     </div>
