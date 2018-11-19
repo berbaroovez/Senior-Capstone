@@ -1,9 +1,9 @@
-<?php
+<?php 
 
 
 
 
-mysqli_close($link);
+
  ?>
 <!DOCTYPE html>
 <html>
@@ -67,12 +67,14 @@ mysqli_close($link);
     </div>
 <?php
 
+include("config.php")
+$link = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
 #This if statment allows the the mysql query to go through on the same page
 #This eliminates the need for two pages reducing clutter.
 #Also added a unique attribute to username column so it will return a error if the same username is added
 if($_SERVER['REQUEST_METHOD']=='POST')
 {
-  $link = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
+
 
   if (!$link) {
       echo "Error: Unable to connect to MySQL." . PHP_EOL;
@@ -100,7 +102,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     echo "Error: " . $sql."".mysqli_error($link);
   }
 }
-
+mysqli_close($link);
  ?>
 
   </body>
