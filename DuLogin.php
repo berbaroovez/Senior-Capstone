@@ -72,19 +72,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       $myusername = mysqli_real_escape_string($db,$_POST['loginTextBox']);
 
 
-      $sql = "SELECT username FROM students WHERE username = '$myusername'";
+      $sql = "SELECT username,ID, sportID FROM students WHERE username = '$myusername'";
       $result = mysqli_query($db,$sql);
-      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      $active = $row['active'];
+      $row = mysqli_fetch_array($result);
+
 
       $count = mysqli_num_rows($result);
 
       // If result matched $myusername and $mypassword, table row must be 1 row
 
       if($count == 1) {
-         $_SESSION['login_user'] = $myusername;
 
-         header("location: InjuryInfo.php");
+         $_SESSION['login_user'] = $myusername;
+         $_SESSION['userID'] = $row[1];
+         $_SESSION['userSport'] = $row[2];
+
+
+        header("location: InjuryInfo.php");
       }else {
          $error = "Your Login Name or Password is invalid";
       }
