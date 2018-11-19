@@ -89,7 +89,7 @@ else {
                       <div class="info-form">
                           <form method="post"  class="form-inline justify-content-center">
                               <div class="form-group">
-                                  <select class="form-control form-control-sm" id="Injury_Select" name="Injury_Select">
+                                  <select class="form-control form-control-sm" id="Injury_Select" name="Injury_Select" required>
                                   <option value="" disabled selected>Select a Injury</option>
                                   <?php
 
@@ -105,10 +105,10 @@ else {
                                 </select>
                               </div>
                               <div class="form-group">
-                                  <input type="text" class="form-control form-control-sm" name = "Description" placeholder="Description">
+                                  <input type="text" class="form-control form-control-sm" name = "Description" placeholder="Description" required>
                               </div>
                               <div class="form-group">
-                                  <select class="form-control form-control-sm" id="AT_SAW" name ="AT_SAW">
+                                  <select class="form-control form-control-sm" id="AT_SAW" name ="AT_SAW" required>
                                   <option value="" disabled selected>Athletic Trainer Saw</option>
                                   <?php
 

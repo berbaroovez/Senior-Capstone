@@ -122,7 +122,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class ="col-md-4 offset-md-4">
           <form method ="post">
             <div class="input-group">
-              <input type="text" name="loginTextBox"  maxlength="9" class="form-control input-sm" id="inputsm" placeholder="Enter Student ID">
+              <input type="text" name="loginTextBox"  maxlength="9" class="form-control input-sm" id="inputsm" placeholder="Enter Student ID" required>
               <div class="input-group-btn">
                 <button class="btn btn-default" type="submit">Log In</button>
               </div>
