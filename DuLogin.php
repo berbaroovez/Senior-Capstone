@@ -112,7 +112,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <div style="background:transparent !important" class ="jumbotron text-center">
       <div class ="container">
 
-        <h1 class="display3">Atheletic Trainer Room Sign In</h1>
+        <h1 class="display-3">Atheletic Trainer Room Sign In</h1>
 
       </div>
     </div>
@@ -135,8 +135,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class = "container-fluid">
       <div class="row">
         <div class ="col-md-4 offset-md-4">
-          <p>To sign up for an account click here</p>
-          <!--Add a link atribute for sign up page -->
+          <a href="DuSignUp.php" class="btn btn-info" role="button">Sign Up</a>
         </div>
       </div>
     </div>

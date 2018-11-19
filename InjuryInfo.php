@@ -1,6 +1,9 @@
-<?php 
+<?php
 include("config.php");
 session_start();
+if(!isset($_SESSION['login_user'])){
+   header("Location:DuLogin.php");
+}
 $link = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
 //
 if (!$link) {
@@ -41,7 +44,12 @@ VALUES ($userID_int,now(),'$description',$ATS_int,$injury_int,$userSport_int)";
 
 if(mysqli_query($link, $sql))
 {
-  echo "Record Added";
+  // remove all session variables
+session_unset();
+
+// destroy the session
+session_destroy();
+  header("location: DuLogin.php");
 }
 else {
   echo "Error: " . $sql."".mysqli_error($link);
@@ -56,7 +64,7 @@ else {
     <link rel="stylesheet" href="css/main.css">
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="js/jquery.repeatable.js"></script>
-    <title>Injury Information2</title>
+    <title>Injury Information</title>
 
 
 

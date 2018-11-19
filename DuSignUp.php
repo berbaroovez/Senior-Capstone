@@ -1,6 +1,16 @@
-<?php 
+<?php
+
+include("config.php");
+$link = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
+
+  if (!$link) {
+      echo "Error: Unable to connect to MySQL." . PHP_EOL;
+      echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+      echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+      exit;
 
 
+  }
 
 
 
@@ -20,7 +30,7 @@
     <div style="background:transparent !important" class ="jumbotron text-center">
       <div class ="container">
 
-        <h1>Atheletic Trainer Room Sign Up</h1>
+        <h1 class="display-3">Atheletic Trainer Room Sign Up</h1>
 
       </div>
     </div>
@@ -42,23 +52,20 @@
         </div>
         <div class="form-group">
 
-          <select name="SportDropDown">
-            <option value="Tennis">Tennis</option>
-            <option value="Men's Soccer">Men's Soccer</option>
-            <option value="Women's Soccer">Women's Soccer</option>
-            <option value="Men's Basketball">Men's Basketball</option>
+          <select name="SportDropDown" class="form-control">
+            <option value="" disabled selected>Select a Sport</option>
+            <?php
+
+            $sql = "SELECT * FROM sports";
+            $result = mysqli_query($link,$sql);
+            //$row = mysqli_fetch_array($result);
+
+            while ($row = mysqli_fetch_array($result)) {
+                echo "<option value='" . $row['sportsID'] . "'>" . $row['Name'] . "</option>";
+            }
+
+             ?>
           </select>
-          <label for="AthleteSport">Primary Sport</label>
-        </div>
-          <div class="form-group">
-<!--make sure that first option is null-->
-            <select name="Sport2DropDown">
-              <option value="Racquet">Racquet</option>
-              <option value="Men's Soccer">Men's Soccer</option>
-              <option value="Women's Soccer">Women's Soccer</option>
-              <option value="Men's Basketball">Men's Basketball</option>
-            </select>
-            <label for="AthleteSport2">Second Sport (Optional)</label>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
@@ -67,8 +74,6 @@
     </div>
 <?php
 
-include("config.php")
-$link = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
 #This if statment allows the the mysql query to go through on the same page
 #This eliminates the need for two pages reducing clutter.
 #Also added a unique attribute to username column so it will return a error if the same username is added
@@ -76,30 +81,31 @@ if($_SERVER['REQUEST_METHOD']=='POST')
 {
 
 
-  if (!$link) {
-      echo "Error: Unable to connect to MySQL." . PHP_EOL;
-      echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-      echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-      exit;
-
-
-  }
 
   #This takes in the post variables from the form above
   #the last line with two ID's makes sures ID is lowercase before entering into database to also eliminate duplicates
   $FirstName = mysqli_real_escape_string($link, $_POST['FirstName']);
+  $FirstName = strtolower($FirstName);
+
   $LastName = mysqli_real_escape_string($link, $_POST['LastName']);
+  $LastName = strtolower($LastName);
+
+  $sportID = mysqli_real_escape_string($link, $_POST['SportDropDown']);
+  $sportID_int = (int)$sportID;
+
   $ID = mysqli_real_escape_string($link, $_POST['ID']);
   $ID = strtolower($ID);
 
-  $sql = "INSERT INTO students (FirstName, LastName, username, sportID) VALUES ('$FirstName', '$LastName','$ID',1)";
-  echo "Hello";
+  $sql = "INSERT INTO students (FirstName, LastName, username, sportID) VALUES ('$FirstName', '$LastName','$ID',$sportID_int)";
+
   if(mysqli_query($link, $sql))
   {
     echo "Record Added";
+    header('location: DuLogin.php');
   }
   else {
     echo "Error: " . $sql."".mysqli_error($link);
+    echo "THAT LORAS ID IS ALREADY IN USE";
   }
 }
 mysqli_close($link);
