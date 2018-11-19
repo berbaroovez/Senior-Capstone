@@ -1,41 +1,54 @@
 <?php
 include("config.php");
 session_start();
-$db = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
+$link = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
+//
+if (!$link) {
+  echo "Error: Unable to connect to MySQL." . PHP_EOL;
+  echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+  echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+  exit;
 
+
+}
+
+// $sql = "SELECT * FROM trainers";
+// $result = mysqli_query($link,$sql);
+// $row = mysqli_fetch_array($result);
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form
 
-      $injury = mysqli_real_escape_string($db,$_POST['Injury_Select']);
-      $description = mysqli_real_escape_string($db,$_POST['Description']);
-      $ATS = mysqli_real_escape_string($db,$_POST['AT_SAW']);
+      $userLoggedIn = $_SESSION["login_user"];
+      $date = date("Y-m-d H:i:s");
+      $injury = mysqli_real_escape_string($link,$_POST['Injury_Select']);
+      $injury_int = (int)$injury;
+
+      $description = mysqli_real_escape_string($link,$_POST['Description']);
+
+      $ATS = mysqli_real_escape_string($link,$_POST['AT_SAW']);
+      $ATS_int = (int)$ATS;
+
+      $userID_int = (int)$_SESSION['userID'];
+      $userSport_int = (int)$_SESSION['userSport'];
 
 
-    //  $sql = "SELECT username FROM students WHERE username = '$myusername'";
-      //$result = mysqli_query($db,$sql);
-    //  $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-    //  $active = $row['active'];
+      $sql = "INSERT INTO injury_report(studentID, Date,Description, ATS_ID, InjuryID, sportID)
+VALUES ($userID_int,now(),'$description',$ATS_int,$injury_int,$userSport_int)";
 
-    //  $count = mysqli_num_rows($result);
+// $sql = "INSERT INTO injury_report(studentID, Date,Description, ATS_ID, InjuryID, sportID)
+// VALUES (2,now(),'test',1,9,2)";
 
-      // If result matched $myusername and $mypassword, table row must be 1 row
-
-      //if($count == 1) {
-      //   $_SESSION['login_user'] = $myusername;
-
-      if(1==1)
-      {
-        header("location: DuLogin.php");
+if(mysqli_query($link, $sql))
+{
+  echo "Record Added";
 }
-    //  }else {
-      //   $error = "Your Login Name or Password is invalid";
-    //  }
-//   }
-
+else {
+  echo "Error: " . $sql."".mysqli_error($link);
 }
 
-?>
+ }
+       ?>
  <!DOCTYPE html>
 <html>
   <head>
@@ -66,13 +79,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                   <div class="col-sm-10 offset-sm-1 text-center">
                       <h1 class="display-3">Injury Info</h1>
                       <div class="info-form">
-                          <form action="" method="post"  class="form-inline justify-content-center">
+                          <form method="post"  class="form-inline justify-content-center">
                               <div class="form-group">
                                   <select class="form-control form-control-sm" id="Injury_Select" name="Injury_Select">
                                   <option value="" disabled selected>Select a Injury</option>
-                                  <option>Ankle</option>
-                                  <option>Back</option>
-                                  <option>Wrist</option>
+                                  <?php
+
+                                  $sql = "SELECT * FROM injuries";
+                                  $result = mysqli_query($link,$sql);
+                                  //$row = mysqli_fetch_array($result);
+
+                                  while ($row = mysqli_fetch_array($result)) {
+                                      echo "<option value='" . $row['injuriesID'] . "'>" . $row['Name'] . "</option>";
+                                  }
+
+                                   ?>
                                 </select>
                               </div>
                               <div class="form-group">
@@ -81,17 +102,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                               <div class="form-group">
                                   <select class="form-control form-control-sm" id="AT_SAW" name ="AT_SAW">
                                   <option value="" disabled selected>Athletic Trainer Saw</option>
-                                  <option>Amanda</option>
-                                  <option>Chris</option>
-                                  <option>Katie</option>
+                                  <?php
+
+                                  $sql = "SELECT * FROM trainer";
+                                  $result = mysqli_query($link,$sql);
+
+
+                                  while ($row = mysqli_fetch_array($result)) {
+                                      echo "<option value='" . $row['trainerID'] . "'>" . $row['FirstName'] . "</option>";
+                                  }
+
+                                   ?>
                                 </select>
                               </div>
                               <button type="submit" class="btn btn-sm  ">Submit</button>
                           </form>
                       </div>
                       <br>
-
-
                   </div>
               </div>
           </div>
@@ -99,5 +126,54 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         </div>
   </section>
+
+  <!-- <?php
+  include("config.php");
+  session_start();
+
+
+
+  if($_SERVER["REQUEST_METHOD"] == "POST") {
+        // username and password sent from form
+$link = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
+
+if (!$link) {
+    echo "Error: Unable to connect to MySQL." . PHP_EOL;
+    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+    exit;
+
+
+}
+        $userLoggedIn = $_SESSION["login_user"];
+        $injury = mysqli_real_escape_string($link,$_POST['Injury_Select']);
+        $description = mysqli_real_escape_string($link,$_POST['Description']);
+        $ATS = mysqli_real_escape_string($link,$_POST['AT_SAW']);
+
+
+
+
+      //  $sql = "SELECT username FROM students WHERE username = '$myusername'";
+
+
+      //  $count = mysqli_num_rows($result);
+
+        // If result matched $myusername and $mypassword, table row must be 1 row
+
+        //if($count == 1) {
+        //   $_SESSION['login_user'] = $myusername;
+
+  //       if(1==1)
+  //       {
+  //         header("location: DuLogin.php");
+  // }
+      //  }else {
+        //   $error = "Your Login Name or Password is invalid";
+      //  }
+  //   }
+
+  }
+
+  ?> -->
   </body>
 </html>
