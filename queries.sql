@@ -10,3 +10,10 @@ group by injuries.Name;
 
 
 ADD SPORT NEXT ^^
+
+
+select students.FirstName, students.LastName, sports.Name as 'Sports Name',
+injuries.Name as 'Injuries Name', injury_report.Description, injury_report.Date
+from injury_report join students on injury_report.studentID = students.ID
+join sports on injury_report.sportID = sports.sportsID
+join injuries on injury_report.InjuryID = injuries.injuriesID;
