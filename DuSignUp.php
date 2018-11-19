@@ -27,6 +27,7 @@ $link = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
     <title>Sign Up Page</title>
   </head>
   <body style="background:#D1B888 !important">
+
     <div style="background:transparent !important" class ="jumbotron text-center">
       <div class ="container">
 
@@ -40,19 +41,19 @@ $link = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
       <form  method="post">
         <div class="form-group">
           <label for="AthleteFirstName">First Name</label>
-          <input type="text" class="form-control" id="AthleteFirstName" name='FirstName' aria-describedby="emailHelp" placeholder="Enter First Name">
+          <input type="text" class="form-control" id="AthleteFirstName" name='FirstName' aria-describedby="emailHelp" placeholder="Enter First Name" required>
         </div>
         <div class="form-group">
           <label for="AthleteLastName">Last Name</label>
-          <input type="text" class="form-control" id="AthleteLastName" name='LastName'placeholder="Enter Last Name">
+          <input type="text" class="form-control" id="AthleteLastName" name='LastName'placeholder="Enter Last Name" required>
         </div>
         <div class="form-group">
           <label for="AthleteStudentID">Student ID</label>
-          <input type="text" maxlength ="9"class="form-control" id="AthleteID" name="ID" placeholder="Enter Student ID Name (ex: AA123456)">
+          <input type="text" maxlength ="9"class="form-control" id="AthleteID" name="ID" placeholder="Enter Student ID Name (ex: AA123456)" required>
         </div>
         <div class="form-group">
 
-          <select name="SportDropDown" class="form-control">
+          <select name="SportDropDown" class="form-control" required>
             <option value="" disabled selected>Select a Sport</option>
             <?php
 
