@@ -134,54 +134,5 @@ else {
 
         </div>
   </section>
-
-  <!-- <?php
-  include("config.php");
-  session_start();
-
-
-
-  if($_SERVER["REQUEST_METHOD"] == "POST") {
-        // username and password sent from form
-$link = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
-
-if (!$link) {
-    echo "Error: Unable to connect to MySQL." . PHP_EOL;
-    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-    exit;
-
-
-}
-        $userLoggedIn = $_SESSION["login_user"];
-        $injury = mysqli_real_escape_string($link,$_POST['Injury_Select']);
-        $description = mysqli_real_escape_string($link,$_POST['Description']);
-        $ATS = mysqli_real_escape_string($link,$_POST['AT_SAW']);
-
-
-
-
-      //  $sql = "SELECT username FROM students WHERE username = '$myusername'";
-
-
-      //  $count = mysqli_num_rows($result);
-
-        // If result matched $myusername and $mypassword, table row must be 1 row
-
-        //if($count == 1) {
-        //   $_SESSION['login_user'] = $myusername;
-
-  //       if(1==1)
-  //       {
-  //         header("location: DuLogin.php");
-  // }
-      //  }else {
-        //   $error = "Your Login Name or Password is invalid";
-      //  }
-  //   }
-
-  }
-
-  ?> -->
   </body>
 </html>
