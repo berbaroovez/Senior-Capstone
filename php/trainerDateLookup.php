@@ -30,7 +30,9 @@ $db = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
         <tr>
           <th>Firstname</th>
           <th>Lastname</th>
-          <th>Email</th>
+          <th>Injury</th>
+          <th>Description</th>
+          <th>Date</th>
         </tr>
       </thead>
       <tbody>
@@ -38,16 +40,22 @@ $db = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
           <td>John</td>
           <td>Doe</td>
           <td>john@example.com</td>
+          <td></td>
+          <td></td>
         </tr>
         <tr>
           <td>Mary</td>
           <td>Moe</td>
           <td>mary@example.com</td>
+          <td></td>
+          <td></td>
         </tr>
         <tr>
           <td>July</td>
           <td>Dooley</td>
           <td>july@example.com</td>
+          <td></td>
+          <td></td>
         </tr>
       </tbody>
     </table>
