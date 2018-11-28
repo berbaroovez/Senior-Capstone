@@ -1,3 +1,10 @@
+<<?php
+
+include("config.php");
+session_start();
+$db = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
+ ?>
+
 <!DOCTYPE html>
 <html>
   <head>
