@@ -135,7 +135,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class = "container-fluid">
       <div class="row">
         <div class ="col-md-4 offset-md-4">
-          <a href="DuSignUp.php" class="btn btn-info" role="button">Sign Up</a>
+          <a href="DuSignUp.php" class="btn btn-info" role="button">Click Here To Sign Up</a>
         </div>
       </div>
     </div>
