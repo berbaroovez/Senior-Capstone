@@ -20,7 +20,11 @@ join injuries on injury_report.InjuryID = injuries.injuriesID;
 
 
 
+<<<<<<< HEAD
 query for trainerDateLookup
+=======
+query for date 
+>>>>>>> c9a44bdf4a5ec2491273241fba5936491db46458
 select students.FirstName, students.LastName, injuries.Name, injury_report.Description,injury_report.Date
 from injury_report join students on injury_report.studentID = students.ID
 join sports on injury_report.sportID = sports.sportsID
