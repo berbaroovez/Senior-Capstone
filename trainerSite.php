@@ -110,7 +110,7 @@ if (!$link) {
                               <button type="submit" class="btn btn-sm  ">Submit</button>
                               </form>
 <br>
-                        <form method="post" action = "php/trainerAthleteLookup" class="form-inline justify-content-center">
+                        <form method="post" action = "php/trainerAthleteLookup.php" class="form-inline justify-content-center">
                               <div class="form-group">
                                   <input type="text" class="form-control form-control-sm" name = "FirstName" placeholder="First Name">
                                   <input type="text" class="form-control form-control-sm" name = "LastName" placeholder="Last Name">
