@@ -110,24 +110,10 @@ if (!$link) {
                               <button type="submit" class="btn btn-sm  ">Submit</button>
                               </form>
 <br>
-                        <form method="post"  class="form-inline justify-content-center">
+                        <form method="post" action = "php/trainerAthleteLookup" class="form-inline justify-content-center">
                               <div class="form-group">
                                   <input type="text" class="form-control form-control-sm" name = "FirstName" placeholder="First Name">
                                   <input type="text" class="form-control form-control-sm" name = "LastName" placeholder="Last Name">
-                                  <select class="form-control form-control-sm" id="injury_by_sport" name="injury_by_sport" >
-                                  <option value="" disabled selected>Select a Sport</option>
-                                  <?php
-
-                                  $sql = "SELECT * FROM sports";
-                                  $result = mysqli_query($link,$sql);
-                                  //$row = mysqli_fetch_array($result);
-
-                                  while ($row = mysqli_fetch_array($result)) {
-                                      echo "<option value='" . $row['sportsID'] . "'>" . $row['Name'] . "</option>";
-                                  }
-
-                                   ?>
-                                </select>
                               </div>
                             <button type="submit" class="btn btn-sm  ">Submit</button>
                           </form>
