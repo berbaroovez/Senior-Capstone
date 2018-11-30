@@ -2,7 +2,7 @@
 
 include("config.php");
 session_start();
-$db = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
+$link = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
 
 $sport = $_POST['injury_by_sport'];
 $startDate = $_POST['StartDate'];
