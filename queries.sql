@@ -20,13 +20,12 @@ join injuries on injury_report.InjuryID = injuries.injuriesID;
 
 
 
-<<<<<<< HEAD
-query for trainerDateLookup
-=======
-query for date 
->>>>>>> c9a44bdf4a5ec2491273241fba5936491db46458
-select students.FirstName, students.LastName, injuries.Name, injury_report.Description,injury_report.Date
+
+query for trainerDateLookup - keeping sport name for when they Date search for all sports
+
+select students.FirstName, students.LastName, injuries.Name, injury_report.Description,injury_report.Date, sports.Name
 from injury_report join students on injury_report.studentID = students.ID
 join sports on injury_report.sportID = sports.sportsID
 join injuries on injury_report.InjuryID = injuries.injuriesID
-where injury_report.Date between "2018-11-19" and "2018-11-25";
+where injury_report.Date between "2018-11-19" and "2018-11-25"
+and  sports.Name = "Football";

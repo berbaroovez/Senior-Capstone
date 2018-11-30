@@ -132,7 +132,7 @@ if (!$link) {
                             <button type="submit" class="btn btn-sm  ">Submit</button>
                           </form>
 <br>
-                          <form method="post"  class="form-inline justify-content-center">
+                          <form method="post"  action="php/trainerDateLookup.php" class="form-inline justify-content-center">
                                 <div class="form-group">
                                   <input type="date" class="form-control form-control-sm" name = "StartDate" placeholder="Start Date">
                                   <input type="date" class="form-control form-control-sm" name = "EndDate" placeholder="End Date">

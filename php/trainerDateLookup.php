@@ -3,6 +3,10 @@
 include("config.php");
 session_start();
 $db = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
+
+$sport = $_POST['injury_by_sport'];
+$startDate = $_POST['StartDate'];
+$endDate= $_POST['EndDate'];
  ?>
 
 <!DOCTYPE html>
@@ -28,35 +32,49 @@ $db = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Firstname</th>
-          <th>Lastname</th>
+          <th>First Name</th>
+          <th>Last Name</th>
           <th>Injury</th>
           <th>Description</th>
           <th>Date</th>
+          <th>Sport</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>John</td>
           <td>Doe</td>
-          <td>john@example.com</td>
-          <td></td>
-          <td></td>
+          <td>ankle</td>
+          <td>Left ankle sprain</td>
+          <td>2018-11-19</td>
+          <td>Football</td>
         </tr>
-        <tr>
-          <td>Mary</td>
-          <td>Moe</td>
-          <td>mary@example.com</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>July</td>
-          <td>Dooley</td>
-          <td>july@example.com</td>
-          <td></td>
-          <td></td>
-        </tr>
+        <?php
+
+        $sql = "SELECT students.FirstName, students.LastName, injuries.Name, injury_report.Description,injury_report.Date, sports.Name
+        from injury_report join students on injury_report.studentID = students.ID
+        join sports on injury_report.sportID = sports.sportsID
+        join injuries on injury_report.InjuryID = injuries.injuriesID
+        where injury_report.Date between $startDate and $endDate
+        and  sports.Name = $sport";
+
+        $result = mysqli_query($link,$sql);
+        while ($row=mysqli_fetch_array($result))
+          {
+          echo"<tr>
+              <td>".$row['students.FirstName']."</td>
+              <td>".$row['students.LastName']."</td>
+              <td>".$row['injuries.Name']."</td>
+              <td>".$row['injury_report.Description']."</td>
+              <td>".$row['injury_report.Date']."</td>
+              <td>".$row['sports.Name']."</td>
+              </tr>
+           ";
+          }
+
+
+
+         ?>
       </tbody>
     </table>
   </div>
