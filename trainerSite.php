@@ -90,7 +90,7 @@ if (!$link) {
 
 
 
-                          <form method="post"  class="form-inline justify-content-center">
+                          <form method="post" action="php/trainerSportLookup.php" class="form-inline justify-content-center">
                               <div class="form-group">
                                   <select class="form-control form-control-sm" id="injury_by_sport" name="injury_by_sport" >
                                   <option value="" disabled selected>Select a Sport</option>
