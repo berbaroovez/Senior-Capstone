@@ -134,8 +134,8 @@ if (!$link) {
 <br>
                           <form method="post"  action="php/trainerDateLookup.php" class="form-inline justify-content-center">
                                 <div class="form-group">
-                                  <input type="date" class="form-control form-control-sm" name = "StartDate" placeholder="Start Date">
-                                  <input type="date" class="form-control form-control-sm" name = "EndDate" placeholder="End Date">
+                                  <input type="date" class="form-control form-control-sm" id ="StartDate" name = "StartDate" placeholder="Start Date">
+                                  <input type="date" class="form-control form-control-sm" id = "EndDate" name = "EndDate" placeholder="End Date">
                                   <select class="form-control form-control-sm" id="injury_by_sport" name="injury_by_sport" >
                                   <option value="" disabled selected>Select a Sport</option>
                                   <?php
