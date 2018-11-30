@@ -32,9 +32,9 @@ $sport = $_POST['injury_by_sport'];
       </div>
     </div>
 
-    <div>
+    <div class="container">
       <div class="row">
-        <div class="col-lg-12 text-xs-center">
+        <div class="col">
           <table class="table">
             <thead>
               <th scope="col">First Name</th>

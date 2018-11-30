@@ -1,4 +1,4 @@
-<<?php
+<?php
 
 include("config.php");
 session_start();
@@ -29,54 +29,49 @@ $endDate= $_POST['EndDate'];
   <!-- Put your stuff here -->
 
   <div class="container">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Injury</th>
-          <th>Description</th>
-          <th>Date</th>
-          <th>Sport</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>John</td>
-          <td>Doe</td>
-          <td>ankle</td>
-          <td>Left ankle sprain</td>
-          <td>2018-11-19</td>
-          <td>Football</td>
-        </tr>
-        <?php
+    <div class="row">
+      <div class ="col">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Injury</th>
+              <th>Description</th>
+              <th>Date</th>
+              <th>Sport</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
 
-        $sql = "SELECT students.FirstName, students.LastName, injuries.Name, injury_report.Description,injury_report.Date, sports.Name
-        from injury_report join students on injury_report.studentID = students.ID
-        join sports on injury_report.sportID = sports.sportsID
-        join injuries on injury_report.InjuryID = injuries.injuriesID
-        where injury_report.Date between $startDate and $endDate
-        and  sports.Name = $sport";
+            $sql = "SELECT students.FirstName, students.LastName, injuries.Name, injury_report.Description,injury_report.Date, sports.Name
+            from injury_report join students on injury_report.studentID = students.ID
+            join sports on injury_report.sportID = sports.sportsID
+            join injuries on injury_report.InjuryID = injuries.injuriesID
+            where injury_report.Date between '$startDate' and '$endDate'
+            and  injury_report.sportID = $sport";
 
-        $result = mysqli_query($link,$sql);
-        while ($row=mysqli_fetch_array($result))
-          {
-          echo"<tr>
-              <td>".$row['students.FirstName']."</td>
-              <td>".$row['students.LastName']."</td>
-              <td>".$row['injuries.Name']."</td>
-              <td>".$row['injury_report.Description']."</td>
-              <td>".$row['injury_report.Date']."</td>
-              <td>".$row['sports.Name']."</td>
-              </tr>
-           ";
-          }
+            $result = mysqli_query($link,$sql);
+            while ($row=mysqli_fetch_array($result))
+              {
+                echo"<tr>
+                      <td>".$row['FirstName']."</td>
+                      <td>".$row['LastName']."</td>
+                      <td>".$row[2]."</td>
+                      <td>".$row['Description']."</td>
+                      <td>".$row['Date']."</td>
+                      <td>".$row['Name']."</td>
+                      </tr>
+                   ";
+              }
 
+             ?>
 
-
-         ?>
-      </tbody>
-    </table>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 
 
