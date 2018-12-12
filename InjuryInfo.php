@@ -49,7 +49,7 @@ session_unset();
 
 // destroy the session
 session_destroy();
-  header("location: DuLogin.php");
+  header("location: /index.php");
 }
 else {
   echo "Error: " . $sql."".mysqli_error($link);
