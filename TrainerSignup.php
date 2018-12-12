@@ -24,14 +24,14 @@ $link = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/main.css">
-    <title>Sign Up Page</title>
+    <title>Athletic Trainer Sign Up Page</title>
   </head>
   <body style="background:#D1B888 !important">
 
     <div style="background:transparent !important" class ="jumbotron text-center">
       <div class ="container">
 
-        <h1 class="display-3">Atheletic Training Room Sign Up</h1>
+        <h1 class="display-3">Atheletic Trainer Sign Up</h1>
 
       </div>
     </div>
@@ -40,33 +40,21 @@ $link = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
     <div class = "container-fluid">
       <form  method="post">
         <div class="form-group">
-          <label for="AthleteFirstName">First Name</label>
-          <input type="text" class="form-control" id="AthleteFirstName" name='FirstName' aria-describedby="emailHelp" placeholder="Enter First Name" required>
+          <label for="TrainerFirstName">First Name</label>
+          <input type="text" class="form-control" id="TrainerFirstName" name='FirstName' aria-describedby="emailHelp" placeholder="Enter First Name" required>
         </div>
         <div class="form-group">
-          <label for="AthleteLastName">Last Name</label>
-          <input type="text" class="form-control" id="AthleteLastName" name='LastName'placeholder="Enter Last Name" required>
+          <label for="TrainerLastName">Last Name</label>
+          <input type="text" class="form-control" id="TrainerLastName" name='LastName'placeholder="Enter Last Name" required>
         </div>
         <div class="form-group">
-          <label for="AthleteStudentID">Student ID</label>
-          <input type="text" maxlength ="9"class="form-control" id="AthleteID" name="ID" placeholder="Enter Student ID (ex: AA123456)" required>
+          <label for="TrainerLorasID">Loras ID</label>
+          <input type="text" maxlength ="9"class="form-control" id="TrainerID" name="ID" placeholder="Enter Loras ID (ex: AA123456)" required>
         </div>
         <div class="form-group">
+          <label for="TrainerPassword">Password</label>
+          <input type="text" class="form-control" id="TrainerPass" name="Password" placeholder="Enter Password" required>
 
-          <select name="SportDropDown" class="form-control" required>
-            <option value="" disabled selected>Select a Sport</option>
-            <?php
-
-            $sql = "SELECT * FROM sports";
-            $result = mysqli_query($link,$sql);
-            //$row = mysqli_fetch_array($result);
-
-            while ($row = mysqli_fetch_array($result)) {
-                echo "<option value='" . $row['sportsID'] . "'>" . $row['Name'] . "</option>";
-            }
-
-             ?>
-          </select>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
@@ -91,13 +79,14 @@ if($_SERVER['REQUEST_METHOD']=='POST')
   $LastName = mysqli_real_escape_string($link, $_POST['LastName']);
   $LastName = strtolower($LastName);
 
-  $sportID = mysqli_real_escape_string($link, $_POST['SportDropDown']);
-  $sportID_int = (int)$sportID;
 
   $ID = mysqli_real_escape_string($link, $_POST['ID']);
   $ID = strtolower($ID);
 
-  $sql = "INSERT INTO students (FirstName, LastName, username, sportID) VALUES ('$FirstName', '$LastName','$ID',$sportID_int)";
+  $Password =  mysqli_real_escape_string($link, $_POST['Password']);
+  $Password = strtolower($Password);
+
+  $sql = "INSERT INTO trainers (FirstName, LastName, username, password) VALUES ('$FirstName', '$LastName','$ID',$Password)";
 
   if(mysqli_query($link, $sql))
   {
@@ -109,6 +98,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     echo "THAT LORAS ID IS ALREADY IN USE";
   }
 }
+
 mysqli_close($link);
  ?>
 
