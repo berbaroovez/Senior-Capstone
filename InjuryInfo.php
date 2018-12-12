@@ -2,7 +2,7 @@
 include("config.php");
 session_start();
 if(!isset($_SESSION['login_user'])){
-   header("Location:DuLogin.php");
+   header("Location:index.php");
 }
 $link = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
 //

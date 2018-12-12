@@ -31,7 +31,7 @@ $link = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
     <div style="background:transparent !important" class ="jumbotron text-center">
       <div class ="container">
 
-        <h1 class="display-3">Atheletic Trainer Room Sign Up</h1>
+        <h1 class="display-3">Atheletic Training Room Sign Up</h1>
 
       </div>
     </div>
@@ -102,7 +102,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
   if(mysqli_query($link, $sql))
   {
     echo "Record Added";
-    header('location: DuLogin.php');
+    header('location: index.php');
   }
   else {
     echo "Error: " . $sql."".mysqli_error($link);

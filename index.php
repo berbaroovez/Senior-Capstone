@@ -88,7 +88,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
          $_SESSION['userSport'] = $row[2];
 
 
-        header("location: InjuryInfo.php");
+        header("location: php/InjuryInfo.php");
       }else {
          $error = "Your Login Name or Password is invalid";
       }
@@ -112,7 +112,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <div style="background:transparent !important" class ="jumbotron text-center">
       <div class ="container">
 
-        <h1 class="display-3">Atheletic Trainer Room Sign In</h1>
+        <h1 class="display-3">Atheletic Training Room Sign In</h1>
 
       </div>
     </div>
@@ -135,7 +135,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class = "container-fluid">
       <div class="row">
         <div class ="col-md-4 offset-md-4">
-          <a href="DuSignUp.php" class="btn btn-info" role="button">Click Here To Sign Up</a>
+          <a href="php/DuSignUp.php" class="btn btn-info" role="button">Click Here To Sign Up</a>
         </div>
       </div>
     </div>
