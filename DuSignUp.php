@@ -22,8 +22,8 @@ $link = mysqli_connect("localhost", "lorasAdmin", "lorasATR2018", "atr");
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta hhtp-equiv="X-UA-Compatible" content="IE-Edge">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
     <title>Sign Up Page</title>
   </head>
   <body style="background:#D1B888 !important">

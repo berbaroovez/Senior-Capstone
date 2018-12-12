@@ -60,8 +60,8 @@ else {
  <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="js/jquery.repeatable.js"></script>
     <title>Injury Information</title>
