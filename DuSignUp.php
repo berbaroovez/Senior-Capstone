@@ -102,7 +102,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
   if(mysqli_query($link, $sql))
   {
     echo "Record Added";
-    header('location: index.php');
+    header('location: /index.php');
   }
   else {
     echo "Error: " . $sql."".mysqli_error($link);
